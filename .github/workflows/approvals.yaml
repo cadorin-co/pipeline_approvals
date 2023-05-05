@@ -16,6 +16,7 @@ jobs:
         run: echo "Planning changes"
 
   approval:
+    needs: plan
     name: Approval
     runs-on: ubuntu-latest
     environment: production
