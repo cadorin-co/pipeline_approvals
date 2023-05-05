@@ -1,0 +1,35 @@
+name: Production Deployment Pipeline
+
+on:
+  workflow_dispatch:
+    branches:
+      - master
+
+jobs:
+  plan:
+    name: Plan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Plan
+        run: echo "Planning changes"
+
+  approval:
+    name: Approval
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Approval
+        run: echo "Changes pending approval"
+
+  apply:
+    name: apply
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Apply
+        run: echo "Applying changes"
